@@ -45,14 +45,13 @@ func TestGetCodePoint(t *testing.T) {
 func BenchmarkGetCodePoint(b *testing.B) {
 
 	for i := 0; i < b.N; i++ {
-        GetCodePoint('অ')
+		GetCodePoint('অ')
 
 	}
 
 }
 
-
-func ExampleGetCodePoint(){
-    fmt.Println(GetCodePoint('A'))
-    // Output: U+0041
+func ExampleGetCodePoint() {
+	fmt.Println(GetCodePoint('A'))
+	// Output: U+0041
 }

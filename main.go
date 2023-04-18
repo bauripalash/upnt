@@ -8,16 +8,19 @@ import (
 )
 
 func GetCodePoint(r rune) string {
-	return fmt.Sprintf("%U", r)
+	result := fmt.Sprintf("%+q", r)
+	result = strings.TrimPrefix(result, "'")
+	result = strings.TrimSuffix(result, "'")
+	return result
 }
 
 func main() {
 	var inp []string
 	sc := bufio.NewScanner(os.Stdin)
 	for sc.Scan() {
-        for _,item := range sc.Text(){
-            inp = append(inp, GetCodePoint(item))
-        }
+		for _, item := range sc.Text() {
+			inp = append(inp, GetCodePoint(item))
+		}
 	}
-    os.Stdout.WriteString(strings.Join(inp , "\n"))
+	os.Stdout.WriteString(strings.Join(inp, ""))
 }
